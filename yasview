@@ -1,0 +1,49 @@
+#!/usr/bin/ksh
+
+if [ $# == 0 ] ; then
+  USER=`whoami` ;
+elif [ $1 = "-p" ] ; then
+  USER=$2 ;
+elif [ $1 = "-h" ] ; then
+  echo "***" ;
+  echo "*** yasview v.1.0 - Yet Another setview." ; 
+  echo "***" ;
+  echo "" ;
+  echo "Usage: yasview [options]" ;
+  echo "" ;
+  echo "Options Available:" ;
+  echo "-p <pattern>            Pattern to be search for in views names." ;
+  echo "                        Performs a grep on names of views using pattern as key." ;
+  echo "                        If this option is not specified, the views of the current user will be shown." ;
+  echo "-h			This help." ;
+  exit ;
+else
+  echo "ERROR: Unsupported option. Type yasview -h for help." ;
+  exit ;
+fi
+
+echo "**"
+echo "** Views owned by $USER on `hostname` **"
+echo "**"
+#cleartool lsview -s | grep $USER | awk '{ print "> " $1 }'
+echo ""
+
+views=`cleartool lsview -s | grep $USER`
+select selected_view in $views exit; do
+  if [[ "$selected_view" = "exit" ]] ; then
+    exit;
+  else
+    echo "** View $selected_view selected";
+    break;
+  fi
+done
+
+echo "\033]2;`hostname`: $selected_view\007"
+cleartool setview $selected_view
+
+if ( [[ -z $CLEARCASE_ROOT ]] || [[ $CLEARCASE_ROOT == "." ]] ) ; then 
+  current_view="view not set";
+else
+  current_view=`basename $CLEARCASE_ROOT`;
+fi
+echo "\033]2;`hostname`: ${current_view}\007"

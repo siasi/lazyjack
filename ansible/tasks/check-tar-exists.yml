@@ -1,0 +1,7 @@
+---
+- name: check if build tar file is present
+  action: shell ls {{ nfs_dir }}/ctms*.tar
+  register: result
+  ignore_errors: True
+- fail: msg="Build tar file not present"
+  when: result|failed

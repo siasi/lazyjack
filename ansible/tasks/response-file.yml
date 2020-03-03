@@ -1,0 +1,6 @@
+---
+# prepare response file tasks
+- name: remove response file
+  action: command rm -f /tmp/ctm.properties
+- name: transfer installation response file
+  action: template src=./templates/ctm.properties.j2 dest=/tmp/ctm.properties

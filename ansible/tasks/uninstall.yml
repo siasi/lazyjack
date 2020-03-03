@@ -1,0 +1,4 @@
+---
+- name: uninstall server
+  action: command /opt/CiscoTransportManagerServer/UninstallerData/IAUninstaller.sh -quiet -skipssh
+  ignore_errors: True

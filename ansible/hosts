@@ -1,0 +1,9 @@
+[devservers]
+gpk-nmtg-cpo02
+
+[all:vars]
+ansible_python_interpreter=/sw/packages/python/2.7.1/bin/python
+launch_dir=/data/cdimage/Disk1
+nfs_dir=/auto/nmtg-hudson2-gpk/cdimages/lnx_cpo_franklin_rib/daily/LNX_CPO_FRANKLIN_RIB_LATEST
+target_build_dir=/data/cdimage
+target_inst_dir=/cisco/PrimeOpticalServer

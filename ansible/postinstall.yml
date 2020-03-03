@@ -1,0 +1,11 @@
+---
+- hosts: devservers
+  tasks:
+  - include: tasks/remove-tar.yml
+  - include: tasks/setup-dev.yml
+
+- hosts: devservers
+  user: root
+  tasks:
+  - include: tasks/start.yml
+

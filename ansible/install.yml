@@ -1,0 +1,15 @@
+---
+- hosts: devservers
+  tasks:
+  - include: tasks/checkinstalled.yml
+  - include: tasks/remove-tar.yml
+  - include: tasks/expand-tar.yml
+  - include: tasks/response-file.yml
+
+- hosts: devservers
+  user: root
+  tasks:
+  - include: tasks/install.yml
+
+- include: postinstall.yml
+

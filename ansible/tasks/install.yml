@@ -1,0 +1,4 @@
+---
+# installation task
+- name: launch silent installation
+  action: command {{ launch_dir }}/setup.sh -responseFile:/tmp/ctm.properties

@@ -1,0 +1,502 @@
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/MapLink.java@@/main/cpo_main_rib/cpo_england_rib/0 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/MapLink.java@@/main/cpo_main_rib/cpo_england_rib/1
+Index: ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/MapLink.java 
+# OID /vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/MapLink.java;3d10820f.14f611e1.8f0a.00:01:83:cd:9d:59
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/MapLink.java@@/main/cpo_main_rib/cpo_england_rib/0	Fri Apr  5 14:56:37 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/MapLink.java@@/main/cpo_main_rib/cpo_england_rib/1	Fri Apr  5 14:56:51 2013
+*************** import com.cisco.stardm.platform.model.M
+*** 17,27 ****
+  import com.cisco.stardm.platform.model.event.AssociationChangeEvent;
+  import com.cisco.stardm.platform.model.event.AttributeChangeEvent;
+  import com.cisco.stardm.platform.model.event.DeleteEvent;
+  import com.cisco.stardm.platform.model.ne.IManagedElement;
+  import com.cisco.stardm.platform.model.net.ICommonLink;
+- import com.cisco.stardm.platform.model.net.ILink;
+  import com.cisco.stardm.platform.model.net.IManagedElementContainer;
+  import com.cisco.stardm.platform.model.net.type.LinkUtilization;
+  import com.cisco.stardm.platform.model.viewkit.report.ReportSpecification;
+  
+  
+--- 17,26 ----
+*************** public abstract class MapLink<T extends 
+*** 346,356 ****
+     *
+     * @since 9.6.3
+     */
+    public LinkUtilization getUtilization()
+    {
+!     return ((ILink) getObject()).getUtilization();
+    }
+  }
+  
+  /**
+   * @CTM_beautified
+--- 345,355 ----
+     *
+     * @since 9.6.3
+     */
+    public LinkUtilization getUtilization()
+    {
+!     return getObject().getUtilization();
+    }
+  }
+  
+  /**
+   * @CTM_beautified
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/NetworkModelBuilder.java@@/main/ctm_atrani_rib/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/2 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/NetworkModelBuilder.java@@/main/ctm_atrani_rib/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/3
+Index: ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/NetworkModelBuilder.java 
+# OID /vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/NetworkModelBuilder.java;ddc0829f.14f611e1.8f0a.00:01:83:cd:9d:59
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/NetworkModelBuilder.java@@/main/ctm_atrani_rib/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/2	Fri Feb 15 15:06:12 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/map/model/NetworkModelBuilder.java@@/main/ctm_atrani_rib/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/3	Fri Apr  5 14:56:51 2013
+*************** public class NetworkModelBuilder<T exten
+*** 25,35 ****
+    void createLinks(MapModel result,
+                     IMapModelView mapView)
+    {
+      bundels = new HashMap<LinkUtil.MOKeyPair, MapLinkBundle>();
+  
+!     List<ILink> links = map.getAllLinks();
+      logger.debug("Have {} links", links.size());
+  
+      /**
+       * !!!!!! --> HERE GET ONLY STANDARDS LINKS !!!!!!
+       * CHENGE HERE TO getAllCPOLinks to get new links
+--- 25,35 ----
+    void createLinks(MapModel result,
+                     IMapModelView mapView)
+    {
+      bundels = new HashMap<LinkUtil.MOKeyPair, MapLinkBundle>();
+  
+!     List<? extends ICommonLink> links = map.getAllLinks();
+      logger.debug("Have {} links", links.size());
+  
+      /**
+       * !!!!!! --> HERE GET ONLY STANDARDS LINKS !!!!!!
+       * CHENGE HERE TO getAllCPOLinks to get new links
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/network/linkmgmt/DwdmLinkReport.java@@/main/cpo_drake_rib/cpo_england_rib/2 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/network/linkmgmt/DwdmLinkReport.java@@/main/cpo_drake_rib/cpo_england_rib/3
+Index: ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/network/linkmgmt/DwdmLinkReport.java 
+# OID /vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/network/linkmgmt/DwdmLinkReport.java;aa64acae.0e0211e2.869d.00:50:56:92:00:90
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/network/linkmgmt/DwdmLinkReport.java@@/main/cpo_drake_rib/cpo_england_rib/2	Mon Mar  4 09:04:59 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/java/com/cisco/stardm/emsgui/network/linkmgmt/DwdmLinkReport.java@@/main/cpo_drake_rib/cpo_england_rib/3	Fri Apr  5 14:56:52 2013
+*************** public class DwdmLinkReport
+*** 45,64 ****
+     * @param l +
+     */
+    @Override protected void registerColumns(ICPOLink l)
+    {
+      l.getName();
+-     l.getSourceManagedElement();
+-     l.getDestinationManagedElement();
+-     l.getFirstPtp();
+-     l.getSecondPtp();
+-     l.getLayer();
+-     l.getDescription();
+      l.getAlias();
+      l.getDirection();
+    }
+-   ;
+  }
+  
+  /**
+   * @CTM_beautified
+   */
+--- 45,68 ----
+     * @param l +
+     */
+    @Override protected void registerColumns(ICPOLink l)
+    {
+      l.getName();
+      l.getAlias();
++     l.getDescription();
+      l.getDirection();
++     l.getSize();
++     l.getCost();
++     l.getProtectionType();
++     l.isInNetwork();
++     l.isManual();
++     l.getSrlg();
++     l.getSrcDwdmSide();
++     l.getDstDwdmSide();
++     l.getServiceState();
++     l.getMonitoringState();
+    }
+  }
+  
+  /**
+   * @CTM_beautified
+   */
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/resources/widgets/common/common.configuration.xml@@/main/ctm_atrani_rib/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/1 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/resources/widgets/common/common.configuration.xml@@/main/ctm_atrani_rib/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/2
+Index: ctm/client/gui/src/main/resources/widgets/common/common.configuration.xml 
+# OID /vob/visionway/ctm/client/gui/src/main/resources/widgets/common/common.configuration.xml;08b4aa76.45e711e1.9225.00:50:56:92:00:73
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/resources/widgets/common/common.configuration.xml@@/main/ctm_atrani_rib/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/1	Tue Mar  5 09:14:45 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/client/gui/src/main/resources/widgets/common/common.configuration.xml@@/main/ctm_atrani_rib/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/2	Fri Apr  5 14:56:52 2013
+***************
+*** 3,13 ****
+  <Menu menuId="common.configuration">
+  	<Action actionId="configuration.management.OpenNeExplorer" />
+  	<Separator />
+  	<Action actionId="configuration.management.OpenLinkTable" />
+  	<Action actionId="network.OpenCircuitReport" />
+! 	<!--- <Action actionId="network.OpenLinkReport" /> -->
+  	<Action actionId="network.CreateCircuitFromNes" />
+  	<Action actionId="configuration.management.ManageVlans" />
+  	<Action actionId="configuration.management.CreateLink" />
+  	<Action actionId="configuration.management.CreateServerTrail" />
+  	<Action actionId="configuration.management.DeleteLink" />
+--- 3,13 ----
+  <Menu menuId="common.configuration">
+  	<Action actionId="configuration.management.OpenNeExplorer" />
+  	<Separator />
+  	<Action actionId="configuration.management.OpenLinkTable" />
+  	<Action actionId="network.OpenCircuitReport" />
+! 	<Action actionId="network.OpenLinkReport" /> 
+  	<Action actionId="network.CreateCircuitFromNes" />
+  	<Action actionId="configuration.management.ManageVlans" />
+  	<Action actionId="configuration.management.CreateLink" />
+  	<Action actionId="configuration.management.CreateServerTrail" />
+  	<Action actionId="configuration.management.DeleteLink" />
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/dbmodel/src/main/java/com/cisco/nm/ctm/dbmodel/net/topology/CPOLinkEntity.java@@/main/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/20 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/dbmodel/src/main/java/com/cisco/nm/ctm/dbmodel/net/topology/CPOLinkEntity.java@@/main/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/21
+Index: ctm/common/dbmodel/src/main/java/com/cisco/nm/ctm/dbmodel/net/topology/CPOLinkEntity.java 
+# OID /vob/visionway/ctm/common/dbmodel/src/main/java/com/cisco/nm/ctm/dbmodel/net/topology/CPOLinkEntity.java;b218bb1d.c69811e1.894d.00:50:56:92:00:dd
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/dbmodel/src/main/java/com/cisco/nm/ctm/dbmodel/net/topology/CPOLinkEntity.java@@/main/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/20	Wed Mar 20 09:47:45 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/dbmodel/src/main/java/com/cisco/nm/ctm/dbmodel/net/topology/CPOLinkEntity.java@@/main/cpo_camogli_rib/cpo_drake_rib/cpo_england_rib/21	Fri Apr  5 14:56:52 2013
+***************
+*** 1,26 ****
+  package com.cisco.nm.ctm.dbmodel.net.topology;
+  
+  import java.io.Serializable;
+- 
+  import javax.persistence.Column;
+  import javax.persistence.Embedded;
+  import javax.persistence.Entity;
+  import javax.persistence.Inheritance;
+  import javax.persistence.InheritanceType;
+  import javax.persistence.Table;
+- 
+  import com.cisco.nm.ctm.dbmodel.ne.TerminationPointEntity;
+  import com.cisco.nm.ctm.dbmodel.net.NetManagedObject;
+  import com.cisco.stardm.platform.model.ne.IManagedElement;
+  import com.cisco.stardm.platform.model.ne.IPhysicalTerminationPoint;
+  import com.cisco.stardm.platform.model.ne.ITerminationPoint;
+  import com.cisco.stardm.platform.model.ne.type.Layer;
+  import com.cisco.stardm.platform.model.net.ICPOLink;
+  import com.cisco.stardm.platform.model.net.ICommonLink;
+  import com.cisco.stardm.platform.model.net.ICommonLink.ServiceState;
+- import com.cisco.stardm.platform.model.net.ILink.ProvType;
+  import com.cisco.stardm.platform.model.net.ILink.Size;
+  
+  
+  /**
+   * The JPA entity class for the link Object as retrieved from network topology.
+--- 1,23 ----
+*************** public class CPOLinkEntity
+*** 44,56 ****
+    private ICPOLink.Direction direction;
+  
+    @Column(name = "STATE")
+    private ICPOLink.ServiceState state;
+  
+-   @Column(name = "PROVISIONTYPE")
+-   private ProvType provisionType;
+- 
+    @Column(name = "DESCRIPTION")
+    private String description;
+  
+    @Column(name = "ALIAS")
+    private String alias;
+--- 41,50 ----
+*************** public class CPOLinkEntity
+*** 232,251 ****
+    {
+      this.state = state;
+    }
+  
+    /**
+-    * Sets the link provision type
+-    *
+-    * @param type + the enumeration value indicating the provision type.
+-    */
+-   public void setProvisionTypeState(ProvType type)
+-   {
+-     provisionType = type;
+-   }
+- 
+-   /**
+     * DOCUMENT ME!
+     *
+     * @param cost
+     */
+    public void setCost(int cost)
+--- 226,235 ----
+*************** public class CPOLinkEntity
+*** 262,281 ****
+    {
+      this.protection = protection;
+    }
+  
+    /**
+-    * Returns the link provision type
+-    *
+-    * @return + the enumeration value indicating the provision tyep.
+-    */
+-   public ProvType getProvisionType()
+-   {
+-     return provisionType;
+-   }
+- 
+-   /**
+     * Returns the link description
+     *
+     * @return the String representing the link description.
+     */
+    @Override public String getDescription()
+--- 246,255 ----
+*************** public class CPOLinkEntity
+*** 359,380 ****
+     *
+     * @return +
+     */
+    @Override public boolean isInNetwork()
+    {
+! 
+!     switch (provisionType)
+!     {
+! 
+!       case AUTO_DISCOVERED:
+!       case VIRTUAL:
+!         return true;
+! 
+!       default:
+! 
+!         return false;
+!     }
+    }
+  
+    /**
+     * DOCUMENT ME!
+     *
+--- 333,343 ----
+     *
+     * @return +
+     */
+    @Override public boolean isInNetwork()
+    {
+!     return true;
+    }
+  
+    /**
+     * DOCUMENT ME!
+     *
+*************** public class CPOLinkEntity
+*** 418,438 ****
+    /**
+     * DOCUMENT ME!
+     *
+     * @return +
+     */
+!   @Override public ITerminationPoint.Key<?,?> getFirstTpKey()
+    {
+      return IPhysicalTerminationPoint.Key.of(key.getFirstTp());
+    }
+  
+    /**
+     * DOCUMENT ME!
+     *
+     * @return +
+     */
+!   @Override public ITerminationPoint.Key<?,?> getSecondTpKey()
+    {
+      return IPhysicalTerminationPoint.Key.of(key.getSecondTp());
+    }
+  
+    /**
+--- 381,401 ----
+    /**
+     * DOCUMENT ME!
+     *
+     * @return +
+     */
+!   @Override public ITerminationPoint.Key<?, ?> getFirstTpKey()
+    {
+      return IPhysicalTerminationPoint.Key.of(key.getFirstTp());
+    }
+  
+    /**
+     * DOCUMENT ME!
+     *
+     * @return +
+     */
+!   @Override public ITerminationPoint.Key<?, ?> getSecondTpKey()
+    {
+      return IPhysicalTerminationPoint.Key.of(key.getSecondTp());
+    }
+  
+    /**
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/ne/impl/CPOTerminationPoint.java@@/main/cpo_drake_rib/cpo_england_rib/17 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/ne/impl/CPOTerminationPoint.java@@/main/cpo_drake_rib/cpo_england_rib/18
+Index: ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/ne/impl/CPOTerminationPoint.java 
+# OID /vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/ne/impl/CPOTerminationPoint.java;59913605.1d1d11e2.917d.00:50:56:92:00:5a
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/ne/impl/CPOTerminationPoint.java@@/main/cpo_drake_rib/cpo_england_rib/17	Thu Apr  4 16:13:44 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/ne/impl/CPOTerminationPoint.java@@/main/cpo_drake_rib/cpo_england_rib/18	Fri Apr  5 14:56:52 2013
+*************** public class CPOTerminationPoint
+*** 272,281 ****
+--- 272,291 ----
+          result.markAsNew();
+          return result;
+        }
+      };
+    }
++ 
++   /**
++    * DOCUMENT ME!
++    *
++    * @param opaqueId +
++    */
++   public void setOpaqueId(String opaqueId)
++   {
++     getTerminationPoint().setOpaqueId(opaqueId);
++   }
+  }
+  
+  /**
+   * @CTM_beautified
+   */
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/toolkit/src/main/resources/bundles/com/cisco/stardm/platform/model/net/ICPOLink.properties@@/main/cpo_main_rib/cpo_england_rib/0 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/toolkit/src/main/resources/bundles/com/cisco/stardm/platform/model/net/ICPOLink.properties@@/main/cpo_main_rib/cpo_england_rib/1
+Index: ctm/common/toolkit/src/main/resources/bundles/com/cisco/stardm/platform/model/net/ICPOLink.properties 
+# OID /vob/visionway/ctm/common/toolkit/src/main/resources/bundles/com/cisco/stardm/platform/model/net/ICPOLink.properties;02c6acec.184011e2.9a9f.00:50:56:92:00:dd
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/toolkit/src/main/resources/bundles/com/cisco/stardm/platform/model/net/ICPOLink.properties@@/main/cpo_main_rib/cpo_england_rib/0	Fri Apr  5 14:56:41 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/toolkit/src/main/resources/bundles/com/cisco/stardm/platform/model/net/ICPOLink.properties@@/main/cpo_main_rib/cpo_england_rib/1	Fri Apr  5 14:56:53 2013
+***************
+*** 1,29 ****
+! report.title=DWDM Links Report
+  report.description=Report for DWDM links
+  object.type=ICPOLink
+! NAME.field=Link Name 
+! NAME.tooltip=Link name 
+  DESCRIPTION.field=Description
+  DESCRIPTION.tooltip=Link description
+- ALIAS.field=Alias
+- ALIAS.tooltip=Link alias
+- DIRECTION.field=Direction
+- DIRECTION.tooltip=Link direction
+- SOURCEMANAGEDELEMENT.field=Source
+- SOURCEMANAGEDELEMENT.tooltip=Link source
+  DESTINATIONMANAGEDELEMENT.field=Destination
+  DESTINATIONMANAGEDELEMENT.tooltip=Link destination
+  FIRSTPTP.field=Source TP
+! FIRSTPTP.tooltip=Source termination point
+! SECONDPTP.field=Destination TP
+! SECONDPTP.tooltip=Destination termination point
+  LAYER.field=Layer
+  LAYER.tooltip=Link layer
+- STATE.field=State
+- STATE.tooltip=Link state
+- PROVISIONTYPE.field=Type
+- PROVISIONTYPE.tooltip=Link type
+- ROUTABLE.field=Used for Routing
+- ROUTABLE.tooltip=Can be used for circuit routing
+  LINKMONITORINGSTATE.field=Monitoring State
+  LINKMONITORINGSTATE.tooltip=Link monitoring state
+--- 1,45 ----
+! report.title=Link Report
+  report.description=Report for DWDM links
+  object.type=ICPOLink
+! ALIAS.field=Alias
+! ALIAS.tooltip=The alias of the link
+! COST.field=Cost
+! COST.tooltip=The cost of the link
+  DESCRIPTION.field=Description
+  DESCRIPTION.tooltip=Link description
+  DESTINATIONMANAGEDELEMENT.field=Destination
+  DESTINATIONMANAGEDELEMENT.tooltip=Link destination
++ DIRECTION.field=Direction
++ DIRECTION.tooltip=The direction of the link
++ DSTDWDMSIDE.field=Destination Side
++ DSTDWDMSIDE.tooltip=The side of the destination Termination Point of the link
++ SOURCEMANAGEDELEMENT.field=Source
++ SOURCEMANAGEDELEMENT.tooltip=The source Managed Element of the link
+  FIRSTPTP.field=Source TP
+! FIRSTPTP.tooltip=The source Termination Point of the link
+! INNETWORK.field=Is In Network
+! INNETWORK.tooltip=True if the link is in the network
+  LAYER.field=Layer
+  LAYER.tooltip=Link layer
+  LINKMONITORINGSTATE.field=Monitoring State
+  LINKMONITORINGSTATE.tooltip=Link monitoring state
++ MANUAL.field=Is Manual
++ MANUAL.tooltip=True if the link is a manual link
++ MONITORINGSTATE.field=Monitoring State
++ MONITORINGSTATE.tooltip=The monitoring state of the link
++ NAME.field=Link Name 
++ NAME.tooltip=Link name 
++ PROTECTIONTYPE.field=Protection
++ PROTECTIONTYPE.tooltip=The protection of the link
++ STATE.field=State
++ STATE.tooltip=Link state
++ SIZE.field=Size
++ SIZE.tooltip=Link size
++ SECONDPTP.field=Destination TP
++ SECONDPTP.tooltip=The destination Termination Point of the link
++ SERVICESTATE.field=Service State
++ SERVICESTATE.tooltip=The service state of the link
++ SRCDWDMSIDE.field=Source Side
++ SRCDWDMSIDE.tooltip=The side of the source Termination Point of the link
++ SRLG.field=SRLG
++ SRLG.tooltip=The Shared Source Link Group the link belongs to.
+\ No newline at end of file
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/server/ctmserver/src/main/java/com/cisco/stardm/service/config/cerent/TpController.java@@/main/cpo_england_rib/3 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/server/ctmserver/src/main/java/com/cisco/stardm/service/config/cerent/TpController.java@@/main/cpo_england_rib/4
+Index: ctm/server/ctmserver/src/main/java/com/cisco/stardm/service/config/cerent/TpController.java 
+# OID /vob/visionway/ctm/server/ctmserver/src/main/java/com/cisco/stardm/service/config/cerent/TpController.java;68c6a601.95fb11e2.8ca6.00:50:56:92:00:5a
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/server/ctmserver/src/main/java/com/cisco/stardm/service/config/cerent/TpController.java@@/main/cpo_england_rib/3	Thu Apr  4 16:13:48 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/server/ctmserver/src/main/java/com/cisco/stardm/service/config/cerent/TpController.java@@/main/cpo_england_rib/4	Fri Apr  5 14:56:53 2013
+*************** public abstract class TpController
+*** 42,52 ****
+    protected TpController(IAdapter adapter,
+                           NeContext neContext)
+    {
+      this.adapter = adapter;
+      this.neContext = neContext;
+!     this.moRegistry = new Registry();
+    }
+  
+    /**
+     * DOCUMENT ME!
+     */
+--- 42,52 ----
+    protected TpController(IAdapter adapter,
+                           NeContext neContext)
+    {
+      this.adapter = adapter;
+      this.neContext = neContext;
+!     moRegistry = new Registry();
+    }
+  
+    /**
+     * DOCUMENT ME!
+     */
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/server/install/vws/ctm-net-topology-tables.sql@@/main/cpo_drake_rib/cpo_england_rib/11 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/server/install/vws/ctm-net-topology-tables.sql@@/main/cpo_drake_rib/cpo_england_rib/12
+Index: ctm/server/install/vws/ctm-net-topology-tables.sql 
+# OID /vob/visionway/ctm/server/install/vws/ctm-net-topology-tables.sql;16519776.cf2311e1.95eb.00:50:56:92:00:dd
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/server/install/vws/ctm-net-topology-tables.sql@@/main/cpo_drake_rib/cpo_england_rib/11	Thu Apr  4 16:13:48 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/server/install/vws/ctm-net-topology-tables.sql@@/main/cpo_drake_rib/cpo_england_rib/12	Fri Apr  5 14:56:53 2013
+*************** CREATE TABLE CPO_LINK (
+*** 82,92 ****
+          FIRST_TP varchar(255) not null,
+          LAYER number(10,0) not null,
+          SECOND_TP varchar(255) not null,
+          NAME varchar(255),
+          PROTECTION number(10,0),
+-         PROVISIONTYPE number(10,0),
+          STATE number(10,0),
+          ID number(19,0) not null,
+          primary key (ID)
+  )
+  TABLESPACE BASE_DATA_TABLESPACE;
+--- 82,91 ----

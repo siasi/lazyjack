@@ -1,0 +1,4 @@
+---
+# start server task
+- name: starting server
+  action: command ctms-start

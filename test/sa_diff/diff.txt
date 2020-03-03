@@ -1,0 +1,174 @@
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ICommonLink.java@@/main/cpo_drake_rib/cpo_england_rib/13 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ICommonLink.java@@/main/cpo_drake_rib/cpo_england_rib/14
+Index: ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ICommonLink.java 
+# OID /vob/visionway/ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ICommonLink.java;8a4901b4.dc9d11e1.99e0.00:50:56:92:00:dd
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ICommonLink.java@@/main/cpo_drake_rib/cpo_england_rib/13	Fri Mar 29 08:42:03 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ICommonLink.java@@/main/cpo_drake_rib/cpo_england_rib/14	Thu Apr  4 08:53:41 2013
+***************
+*** 1,8 ****
+--- 1,9 ----
+  package com.cisco.stardm.platform.model.net;
+  
+  import java.util.List;
++ import com.cisco.stardm.platform.model.IAlarmableObject;
+  import com.cisco.stardm.platform.model.IManagedObject;
+  import com.cisco.stardm.platform.model.annotation.MOAssociation;
+  import com.cisco.stardm.platform.model.annotation.MOAttribute;
+  import com.cisco.stardm.platform.model.annotation.MOOperation;
+  import com.cisco.stardm.platform.model.cache.Cached;
+*************** import com.cisco.stardm.platform.neUtil.
+*** 21,31 ****
+   *
+   * @author raltavil
+   * @author siasi
+   */
+  public interface ICommonLink
+!     extends IManagedObject
+  {
+  
+    /**
+     * Enumeration that describes the link service state.
+     */
+--- 22,32 ----
+   *
+   * @author raltavil
+   * @author siasi
+   */
+  public interface ICommonLink
+!     extends IManagedObject, IAlarmableObject
+  {
+  
+    /**
+     * Enumeration that describes the link service state.
+     */
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ILink.java@@/main/ctm_atrani_rib/cpo_drake_rib/cpo_england_rib/16 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ILink.java@@/main/ctm_atrani_rib/cpo_drake_rib/cpo_england_rib/17
+Index: ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ILink.java 
+# OID /vob/visionway/ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ILink.java;8bb53a00.06fc11e1.965a.00:01:83:cd:2e:49
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ILink.java@@/main/ctm_atrani_rib/cpo_drake_rib/cpo_england_rib/16	Wed Apr  3 15:15:48 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/model/net/src/main/java/com/cisco/stardm/platform/model/net/ILink.java@@/main/ctm_atrani_rib/cpo_drake_rib/cpo_england_rib/17	Thu Apr  4 08:53:41 2013
+***************
+*** 1,16 ****
+  package com.cisco.stardm.platform.model.net;
+  
+- import com.cisco.stardm.platform.model.IAlarmableObject;
+  import com.cisco.stardm.platform.model.key.IdKey;
+  
+  
+  /**
+   * DOCUMENT ME!
+   */
+  public interface ILink
+!     extends IAlarmableObject, ICommonLink
+  {
+  
+    /**
+     * DOCUMENT ME!
+     *
+--- 1,15 ----
+  package com.cisco.stardm.platform.model.net;
+  
+  import com.cisco.stardm.platform.model.key.IdKey;
+  
+  
+  /**
+   * DOCUMENT ME!
+   */
+  public interface ILink
+!     extends ICommonLink
+  {
+  
+    /**
+     * DOCUMENT ME!
+     *
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/CpoLink.java@@/main/cpo_drake_rib/cpo_england_rib/28 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/CpoLink.java@@/main/cpo_drake_rib/cpo_england_rib/29
+Index: ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/CpoLink.java 
+# OID /vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/CpoLink.java;ee9ef09a.234511e2.97d5.00:50:56:92:00:5a
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/CpoLink.java@@/main/cpo_drake_rib/cpo_england_rib/28	Fri Mar 29 08:42:03 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/CpoLink.java@@/main/cpo_drake_rib/cpo_england_rib/29	Thu Apr  4 08:53:42 2013
+*************** import java.util.List;
+*** 9,18 ****
+--- 9,19 ----
+  import java.util.Set;
+  import com.cisco.nm.ctm.dbmodel.net.topology.CPOLinkEntity;
+  import com.cisco.nm.ctm.dbmodel.net.topology.LinkEntity;
+  import com.cisco.nm.ctm.dbmodel.net.topology.NcpLinkEntity;
+  import com.cisco.nm.ctm.dbmodel.services.NcpCircuit;
++ import com.cisco.stardm.platform.model.AlarmSummary;
+  import com.cisco.stardm.platform.model.MOFactory.IInstanceFactory;
+  import com.cisco.stardm.platform.model.MOFactory.InstanceFactory;
+  import com.cisco.stardm.platform.model.impl.ManagedObject;
+  import com.cisco.stardm.platform.model.ne.IManagedElement;
+  import com.cisco.stardm.platform.model.ne.ITerminationPoint;
+*************** public class CpoLink
+*** 803,812 ****
+--- 804,823 ----
+     * @return +
+     */
+    @Override public boolean isUnmanaged()
+    {
+      return false;
++   }
++ 
++   /**
++    * DOCUMENT ME!
++    *
++    * @return +
++    */
++   @Override public AlarmSummary getAlarmSummary()
++   {
++     return new AlarmSummary();
+    }
+  }
+  /**
+   * @CTM_beautified
+   */
+#cmd=/usr/local/bin/ccdiff -C 5 -p /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/NcpLink.java@@/main/cpo_england_rib/20 /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/NcpLink.java@@/main/cpo_england_rib/21
+Index: ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/NcpLink.java 
+# OID /vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/NcpLink.java;514dbba8.79ca11e2.92ea.00:50:56:92:00:90
+===================================================================
+*** /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/NcpLink.java@@/main/cpo_england_rib/20	Fri Mar 29 08:42:03 2013
+--- /view/RES-cpo_england_rib.vob.visionway/vob/visionway/ctm/common/platform/src/main/java/com/cisco/stardm/platform/model/net/impl/NcpLink.java@@/main/cpo_england_rib/21	Thu Apr  4 08:53:42 2013
+*************** import java.util.HashSet;
+*** 8,17 ****
+--- 8,18 ----
+  import java.util.List;
+  import java.util.Set;
+  import com.cisco.nm.ctm.dbmodel.net.topology.LinkEntity;
+  import com.cisco.nm.ctm.dbmodel.net.topology.NcpLinkEntity;
+  import com.cisco.nm.ctm.dbmodel.services.NcpCircuit;
++ import com.cisco.stardm.platform.model.AlarmSummary;
+  import com.cisco.stardm.platform.model.impl.ManagedObject;
+  import com.cisco.stardm.platform.model.ne.IManagedElement;
+  import com.cisco.stardm.platform.model.ne.ITerminationPoint;
+  import com.cisco.stardm.platform.model.ne.impl.NeContext;
+  import com.cisco.stardm.platform.model.ne.type.Layer;
+*************** public class NcpLink
+*** 704,713 ****
+--- 705,729 ----
+     */
+    @Override public boolean isUnmanaged()
+    {
+      ProvType provType = ((NcpLinkEntity) getLinkEntity()).getProvType();
+      return ProvType.UNMANAGED.equals(provType);
++   }
++ 
++   /**
++    * DOCUMENT ME!
++    *
++    * @return +
++    */
++   @Override public AlarmSummary getAlarmSummary()
++   {
++     AlarmSummary alarmSummary = new AlarmSummary();
++     alarmSummary.setNumOfCritica(getRawObject().getNumOfActiveCriticalAlarms());
++     alarmSummary.setNumOfmajor(getRawObject().getNumOfActiveMajorAlarms());
++     alarmSummary.setNumOfminor(getRawObject().getNumOfActiveMinorAlarms());
++     alarmSummary.setNumOfWarning(getRawObject().getNumOfActiveWarningAlarms());
++     return alarmSummary;
+    }
+  }
+  
+  /**
+   * @CTM_beautified

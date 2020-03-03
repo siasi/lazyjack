@@ -1,0 +1,4 @@
+---
+# remove expanded tar of the build
+- name: clean target build dir
+  action: command rm -rf {{ target_build_dir }}/Disk1

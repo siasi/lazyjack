@@ -1,0 +1,48 @@
+#!/bin/csh
+
+set OS_UNAME=`uname -s`
+
+set pytho="/opt/dev-tools/python/${OS_UNAME}/2.7.4/python/bin/python"
+
+# Tools for Commit Life Cycle
+alias commit "$pytho %(dest)s/commit.py"
+alias review "$pytho %(dest)s/review.py"
+alias build "$pytho %(dest)s/build.py"
+alias bugs "$pytho %(dest)s/bugs.py"
+alias lsprivate "$pytho %(dest)s/lsprivate.py | sort"
+alias cc_update "/vob/visionway/ctm/tools/scripts/cc_update"
+alias ul "cc_update -m LATEST"
+alias trim "cc_update -m LATEST -trim"
+alias prepare "/vob/visionway/ctm/tools/scripts/prepare"
+
+# Tools for source code management
+alias yasview "%(dest)s/yasview"
+alias co "cc_co -n -f"
+alias lsco "ct lsco -cvi -a -s | sort"
+alias dp "ct diff -pre -g"
+alias vt "ct lsvtree -g"
+alias st "start_task -f -d /ws/$LOGNAME-gpk -v /vob/visionway"
+
+# Static Analysis
+alias sa "$pytho %(dest)s/sa.py"
+
+# Formatting tools
+alias ftco "/vob/visionway/ctm/tools/scripts/javafmtco"
+alias pyindent "$pytho %(dest)s/reindent.py"
+
+# VOB navigation
+alias vob "cd /vob/visionway/ctm"
+alias common "cd /vob/visionway/ctm/common"
+alias client "cd /vob/visionway/ctm/client"
+alias server "cd /vob/visionway/ctm/server"
+alias platform "cd /vob/visionway/ctm/common/platform"
+alias model "cd /vob/visionway/ctm/common/model"
+
+# Tools for CPO setup
+alias lgui "(cd /vob/visionway/ctm/client/gui; gui.sh)"
+alias setup "/opt/dev-tools/python/scripts/bin/setup.sh"
+alias buildcleaner "sudo /opt/CiscoTransportManagerServer/UninstallerData/IAUninstaller.sh -quiet -skipssh"
+alias buildinstall "~/etc/lazyjack/install.sh"
+alias viewinstall "(cd /vob/visionway/ctm/server/release/cdimage/Disk1 && sudo ./setup.sh -dev)"
+alias bootstrap "(cd %(dest)s/ansible && bootstrap.sh)"
+

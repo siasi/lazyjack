@@ -1,0 +1,8 @@
+---
+- hosts: devservers
+  user: root
+  tasks:
+  - include: tasks/uninstall.yml
+
+- include: viewtolocal.yml
+

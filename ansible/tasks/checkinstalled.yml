@@ -1,0 +1,8 @@
+---
+# check if server already installed tasks
+- name: check if server is installed
+  action: command ls {{ target_inst_dir }}
+  register: result
+  ignore_errors: True
+- fail: msg="Server is already installed"
+  when: result|success

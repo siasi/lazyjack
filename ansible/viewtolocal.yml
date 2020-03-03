@@ -1,0 +1,17 @@
+---
+# This playbook is able to install a view in localhost
+- hosts: devservers
+  tasks:
+  - include: tasks/checkinstalled.yml
+  - include: tasks/remove-tar.yml
+  - name: copy build from view to target on localhost
+    local_action: command cp -R {{ view_build_dir }} {{ target_build_dir }}
+  - include: tasks/response-file.yml
+
+- hosts: devservers
+  user: root
+  tasks:
+  - include: tasks/install.yml
+
+- include: postinstall.yml
+

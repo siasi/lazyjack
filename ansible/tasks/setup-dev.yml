@@ -1,0 +1,3 @@
+---
+- name: setup development installation
+  action: shell /opt/dev-tools/python/scripts/bin/setup.sh `hostname`

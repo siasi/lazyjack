@@ -1,0 +1,39 @@
+The boostrap.sh enable the local host for silent installation using ansible.
+(see www.ansibleworks.com)
+
+To launch the script:
+cd <lazyjack-root-dir>/ansible
+./bootstrap.sh
+
+ATTENTION: the script WILL ASK for your user CEC password.
+
+This script accomplishes these task:
+- create ansible inventory file in ~/etc/lazyjack
+- copy scripts
+- copy the response file template ctm.properties.j2
+- create SSH keypair if not present
+- install SSH public key for root
+- create package dir in /data/cdimage
+
+AUTOMATIC INSTALLATION SCRIPT
+
+ATTENTION: uninstall any old installation with 'buildcleaner'.
+
+To start installation
+cd ~/etc/lazyjack
+./install.sh
+
+IMPORTANT: if your SSH key has a passphrase use ssh-agent BEFORE invoking the install.sh script.
+
+example for c-shell:
+cd ~/etc/lazyjack
+ssh-agent csh
+./install.sh
+
+use 'ssh-agent bash' or 'ssh-agent tcsh' for other shells.
+The private key id ~/.ssh/ci_rsa.
+
+Installation details.
+The script will install under '/cisco/PrimeOpticalServer' a small installation for root.
+Is possible to customize in a different way by changing ctm.properties.j2 and install.yml
+

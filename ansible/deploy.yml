@@ -1,0 +1,9 @@
+---
+- hosts: devservers
+  user: root
+  tasks:
+  - include: tasks/check-tar-exists.yml
+  - include: tasks/uninstall.yml
+
+- include: install.yml
+

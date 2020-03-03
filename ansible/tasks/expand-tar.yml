@@ -1,0 +1,4 @@
+---
+# expand build tar file
+- name: expand the nfs tarball to target
+  action: shell tar xf {{ nfs_dir }}/ctms*.tar -C {{ target_build_dir }}

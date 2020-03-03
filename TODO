@@ -1,0 +1,45 @@
+BACKLOG
+=========================================================================================================
+C resolve to not  ask the password
+S audit to not ask the password
+P audit to be able to run daily
+- resolve to determine current iteration
+- refactoring code in resolve
+- Check if sa issues are in diff
+
+- Integrate bugs in review/commit
+- deploy changed jar in server/bin
+- build -e to exclude a set of projects from build
+- build -c to list chnaged projects only
+
+- check changeset output
+- commit: commit -p
+- commit: Reverst silent mode (no diff, no branch)
+- build: if build fails propose the command to restore the build
+
+- check PMD not available
+
+- Browse list of bugs assigned to you
+- I want to attach a new diff version to existent review
+  
+
+AUDIT BACKLOG
+=========================================================================================================
+- Audit in "sanity" mode: -i iteration1,it2,... 
+- Audit in daily mode for a release: -r release
+-- get  all iterations from current date
+-- sanitize each iteration (current could not have all A state)
+- Report execution time
+- Run everyday
+
+
+
+ENGINEERING TASKS
+=========================================================================================================
+* Automate versioning
+- Count line of code
+
+BUGS
+=========================================================================================================
+- Python SA: issues report not showed to user (but report is attached).
+- If a python script has no issues commit script fails since the report file is not generated.
